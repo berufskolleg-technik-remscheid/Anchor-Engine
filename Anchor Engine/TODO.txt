@@ -1,0 +1,5 @@
+rework logger?
+
+add sound
+
+Stop Threads when unused

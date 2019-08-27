@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Anchor Editor/Anchor Editor.iml" filepath="$PROJECT_DIR$/Anchor Editor/Anchor Editor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Anchor Engine/Anchor Engine.iml" filepath="$PROJECT_DIR$/Anchor Engine/Anchor Engine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Anchor PSL AWT/Anchor PSL AWT.iml" filepath="$PROJECT_DIR$/Anchor PSL AWT/Anchor PSL AWT.iml" />
+    </modules>
+  </component>
+</project>
