@@ -34,7 +34,7 @@ public class DisplayImage {
         return pixels[x][y];
     }
 
-    public void setColors(int[] colors) {
+    public void setPixels(int[] colors) {
         if (colors.length != width * height) {
             Logger.error.send("Length of color array is not correct!");
             return;
@@ -58,6 +58,20 @@ public class DisplayImage {
             }
         }
         return colors;
+    }
+
+    public void scale(int width, int height) {
+        int[][] old = pixels;
+        pixels = new int[width][height];
+        double wDiff = (double) width / this.width;
+        double hDiff = (double) height / this.height;
+        this.width = width;
+        this.height = height;
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                pixels[x][y] = old[(int) (x * wDiff)][(int) (y * hDiff)];
+            }
+        }
     }
 
 }

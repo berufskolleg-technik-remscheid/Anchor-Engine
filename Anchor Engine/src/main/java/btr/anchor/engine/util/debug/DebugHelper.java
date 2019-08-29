@@ -29,7 +29,7 @@ public class DebugHelper {
         for (int i = 0; i < arraySize; i++) {
             colors[i] = random.nextInt(16777215);
         }
-        image.setColors(colors);
+        image.setPixels(colors);
         return image;
     }
 

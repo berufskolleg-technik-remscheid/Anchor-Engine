@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/Anchor Editor/Anchor Editor.iml" filepath="$PROJECT_DIR$/Anchor Editor/Anchor Editor.iml" />
       <module fileurl="file://$PROJECT_DIR$/Anchor Engine/Anchor Engine.iml" filepath="$PROJECT_DIR$/Anchor Engine/Anchor Engine.iml" />
       <module fileurl="file://$PROJECT_DIR$/Anchor PSL AWT/Anchor PSL AWT.iml" filepath="$PROJECT_DIR$/Anchor PSL AWT/Anchor PSL AWT.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SandboxGame/SandboxGame.iml" filepath="$PROJECT_DIR$/SandboxGame/SandboxGame.iml" />
     </modules>
   </component>
 </project>

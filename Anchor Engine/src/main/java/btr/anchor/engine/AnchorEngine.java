@@ -37,7 +37,7 @@ public class AnchorEngine {
         instance = this;
         pidl = createSystemLayer(); // open platform independence layer
         pidl.init();
-        FPS.maxFPS = 50;
+        FPS.maxFPS = 60; // TODO: max FPS working?
         init();
         startupSetting = new StartupSetting();
         loop();
