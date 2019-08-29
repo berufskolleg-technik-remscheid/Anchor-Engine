@@ -61,17 +61,21 @@ public class DisplayImage {
     }
 
     public void scale(int width, int height) {
-        int[][] old = pixels;
-        pixels = new int[width][height];
-        double wDiff = (double) width / this.width;
-        double hDiff = (double) height / this.height;
+        int X = width;
+        int Y = height;
+        
+        double xs = (double)pixels.length / X;
+        double ys = (double)pixels[0].length / Y;
+        int[][] newPixels = new int[X][Y];
+        
+        for(int x=0; x<X; x++) {
+          for(int y=0; y<Y; y++) {
+            newPixels[x][y] = pixels[(int)(x*xs)][(int)(y*ys)];
+          }
+        }
+        pixels = newPixels;
         this.width = width;
         this.height = height;
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
-                pixels[x][y] = old[(int) (x * wDiff)][(int) (y * hDiff)];
-            }
-        }
-    }
+     }
 
 }
