@@ -17,7 +17,7 @@ public class Main {
         BufferedImage image = ImageIO.read(new File("./res/anchor_960_1280.jpg"));
 
         DisplayImage dp = new DisplayImage(image.getWidth(), image.getHeight());
-        dp.scale(500, 500);
+        dp.scale(600, 400);
 
         dp.setPixels(image.getRGB(0, 0, dp.width, dp.height, null, 0, dp.width));
         engine.pidl.setCurrentImage(dp);
