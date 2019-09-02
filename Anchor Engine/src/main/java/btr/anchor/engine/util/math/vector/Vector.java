@@ -16,6 +16,10 @@ public class Vector implements IVector, Cloneable {
         this.dimensions = dimensions;
     }
 
+    public Vector(Vector vector) {
+        this.dimensions = vector.dimensions.clone();
+    }
+
     public double getMagnitude() {
         double result = 0;
         for (double x : dimensions) {
