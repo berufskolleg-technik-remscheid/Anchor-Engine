@@ -2,13 +2,15 @@ package btr.anchor.engine.util.math.vector;
 
 import btr.anchor.engine.util.math.AnchorMathLibrary;
 
+import java.util.Arrays;
+
 public class Vector implements IVector, Cloneable {
 
     public static final int X = 0;
     public static final int Y = 1;
     public static final int Z = 2;
 
-    double[] dimensions;
+    private double[] dimensions;
 
     public Vector(double... dimensions) {
         this.dimensions = dimensions;
@@ -19,8 +21,21 @@ public class Vector implements IVector, Cloneable {
         for (double x : dimensions) {
             result += x * x;
         }
-        result = AnchorMathLibrary.nthRoot(2, result);
-        return result;
+        return AnchorMathLibrary.nthRoot(2, result);
+    }
+
+    public Vector normalize() {
+        return this.div(this.getMagnitude());
+    }
+
+    public Vector getDifference(Vector second) {
+        if (second.dimensions.length != dimensions.length)
+            return null; // cant compute two different vectors TODO: Exception
+        Vector v = new Vector();
+        for (int i = 0; i < dimensions.length; i++) {
+            v.dimensions[i] = dimensions[i] - second.dimensions[i];
+        }
+        return v;
     }
 
     public Vector mult(double multiplier) {
@@ -31,7 +46,7 @@ public class Vector implements IVector, Cloneable {
     }
 
     public Vector div(double divisor) {
-        return mult(1d / (double) divisor);
+        return mult(1d / divisor);
     }
 
     public Vector add(Vector vector) {
@@ -97,9 +112,7 @@ public class Vector implements IVector, Cloneable {
     @Override
     public IVector zeroVector() {
         double[] zero = new double[dimensions.length];
-        for (int i = 0; i < zero.length; i++) {
-            zero[i] = 0;
-        }
+        Arrays.fill(zero, 0);
         return new Vector(zero);
     }
 }
