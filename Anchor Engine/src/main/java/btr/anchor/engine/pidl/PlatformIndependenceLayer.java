@@ -2,6 +2,7 @@ package btr.anchor.engine.pidl;
 
 import btr.anchor.bridge.output.*;
 import btr.anchor.engine.display.image.DisplayImage;
+import btr.anchor.engine.shader.filter.FilterHandler;
 
 public abstract class PlatformIndependenceLayer {
 
@@ -10,6 +11,8 @@ public abstract class PlatformIndependenceLayer {
     protected IFileOut fileOut;
     protected IDisplaySettingsOut displaySettingsOut;
     protected ISoundOut soundOut;
+
+    protected FilterHandler filterHandler;
 
     protected DisplayImage currentImage;
 
@@ -24,6 +27,7 @@ public abstract class PlatformIndependenceLayer {
     public IDisplayOut getDisplayOut() {
         return displayOut;
     }
+
     public DisplayImage getCurrentImage() {
         return currentImage;
     }
@@ -42,5 +46,9 @@ public abstract class PlatformIndependenceLayer {
 
     public ISoundOut getSoundOut() {
         return soundOut;
+    }
+
+    public FilterHandler getFilterHandler() {
+        return filterHandler;
     }
 }

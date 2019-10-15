@@ -29,7 +29,7 @@ public class AnchorEngine {
 
     public static AnchorEngine instance;
 
-    public AnchorEngine(TargetSystem targetSystem, String appName, double version, ReleaseState releaseState) throws AnchorEngineException {
+    public AnchorEngine(TargetSystem targetSystem, String appName, double version, ReleaseState releaseState, boolean headless) throws AnchorEngineException {
         this.TARGETSYSTEM = targetSystem;
         this.APPNAME = appName;
         this.VERSION = version;
@@ -46,9 +46,10 @@ public class AnchorEngine {
     public void init() {
         gameLoop = new GameLoop();
         game = new Game();
-        // init keyhandler
-        // init mousehandler
-        // init shaderhandler
+        // TODO:  init keyhandler
+        // TODO:  init mousehandler
+        // TODO:  init shaderhandler
+        // TODO:  init filterhandler
     }
 
     public void loop() {

@@ -2,8 +2,10 @@ package btr.anchor.engine.shader.filter;
 
 import btr.anchor.engine.display.image.DisplayImage;
 
-public interface IFilter {
+public abstract class IFilter {
 
-    DisplayImage process(DisplayImage image);
+    protected abstract DisplayImage process(DisplayImage image);
+
+    public abstract String getFilterName();
 
 }

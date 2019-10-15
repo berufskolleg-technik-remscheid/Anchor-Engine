@@ -37,7 +37,7 @@ public class GameLoop {
                 AnchorEngine.instance.pidl.getDisplayOut().display("FPS: " + FPS.fps, 100, 100, Color.Colors.RED.color);
             } catch (AnchorEngineException e) {
                 if (e.isCritical()) {
-                    e.printStackTrace();
+                    e.printStackTrace(); // TODO: handle critical error
                 } else {
                     e.printStackTrace();
                 }

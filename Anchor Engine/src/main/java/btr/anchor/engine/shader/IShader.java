@@ -1,5 +1,7 @@
 package btr.anchor.engine.shader;
 
-public interface IShader {
+public abstract class IShader {
+
+    public abstract void process();
 
 }

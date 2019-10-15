@@ -4,6 +4,9 @@ public class Vector3D implements IVector, Cloneable {
 
     public double x, y, z;
 
+    public Vector3D() {
+    }
+
     public Vector3D(double x, double y, double z) {
         this.x = x;
         this.y = y;
@@ -11,7 +14,7 @@ public class Vector3D implements IVector, Cloneable {
     }
 
     @Override
-    public double[] getDimentions() {
+    public double[] getDimensions() {
         return new double[]{x, y, z};
     }
 
@@ -20,8 +23,7 @@ public class Vector3D implements IVector, Cloneable {
         return 0;
     }
 
-    @Override
-    public IVector zeroVector() {
-        return null;
+    public Vector3D zeroVector() {
+        return new Vector3D(0, 0, 0);
     }
 }

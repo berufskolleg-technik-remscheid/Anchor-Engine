@@ -104,7 +104,7 @@ public class Vector implements IVector, Cloneable {
     }
 
     @Override
-    public double[] getDimentions() {
+    public double[] getDimensions() {
         return dimensions;
     }
 
@@ -114,7 +114,7 @@ public class Vector implements IVector, Cloneable {
     }
 
     @Override
-    public IVector zeroVector() {
+    public Vector zeroVector() {
         double[] zero = new double[dimensions.length];
         Arrays.fill(zero, 0);
         return new Vector(zero);

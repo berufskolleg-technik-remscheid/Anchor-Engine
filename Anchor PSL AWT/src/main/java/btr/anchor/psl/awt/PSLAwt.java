@@ -2,6 +2,7 @@ package btr.anchor.psl.awt;
 
 import btr.anchor.engine.AnchorEngine;
 import btr.anchor.engine.pidl.PlatformIndependenceLayer;
+import btr.anchor.engine.shader.filter.FilterHandler;
 import btr.anchor.engine.util.fps.FPS;
 import btr.anchor.psl.awt.out.*;
 import btr.anchor.psl.awt.util.AWTSetting;
@@ -30,6 +31,8 @@ public class PSLAwt extends PlatformIndependenceLayer {
 
     private AWTSetting awtSetting;
 
+
+
     public PSLAwt() {
         instance = this;
         awtSetting = new AWTSetting();
@@ -39,6 +42,7 @@ public class PSLAwt extends PlatformIndependenceLayer {
         soundOut = new SoundOut();
         displaySettingsOut = new DisplaySettingsOut();
         awtSetting.scaleDown(2);
+        filterHandler = new FilterHandler();
         frame = new JFrame();
     }
 
@@ -48,6 +52,7 @@ public class PSLAwt extends PlatformIndependenceLayer {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 if (currentImage == null) return;
+                currentImage = filterHandler.run(currentImage);
                 g.drawImage(ImageConverter.displayImageToBufferedImage(currentImage), 0, 0, null);
                 g.setColor(Color.BLUE);
                 g.setFont(new Font("Serif", Font.BOLD, 20));

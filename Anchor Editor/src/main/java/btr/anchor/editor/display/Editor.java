@@ -22,7 +22,7 @@ public class Editor {
     JPanel north;
 
     public void init() {
-        engine = new AnchorEngine(TargetSystem.PC, "Anchor Engine Editor", 0.01, ReleaseState.ALPHA);
+        engine = new AnchorEngine(TargetSystem.PC, "Anchor Engine Editor", 0.01, ReleaseState.ALPHA, false);
         if (engine.pidl instanceof PSLAwt) {
             layer = (PSLAwt) engine.pidl;
             frame = layer.frame;

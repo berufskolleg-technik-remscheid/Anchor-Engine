@@ -2,7 +2,7 @@ package btr.anchor.engine.util.math.vector;
 
 public interface IVector {
 
-    double[] getDimentions();
+    double[] getDimensions();
 
     double distanceTo(Vector vector);
 

@@ -2,6 +2,6 @@ package btr.anchor.engine.util.enums;
 
 public enum ProjectionMode {
 
-    PARALLELPROJECTION, PERSPECTIEVPROJECTION;
+    PARALLEL_PROJECTION, PERSPECTIVE_PROJECTION;
 
 }

@@ -2,17 +2,18 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile name="Maven default annotation processors profile">
+      <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Anchor Bridge" />
       </profile>
       <profile name="Disabled">
         <module name="Anchor Engine" />
-        <module name="Anchor PSL Awt" />
-        <module name="Anchor Editor" />
         <module name="Anchor PSL AWT" />
+        <module name="SandboxGame" />
+        <module name="Anchor Editor" />
+        <module name="Anchor PSL Awt" />
+        <module name="Anchor Bridge" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="10" />
