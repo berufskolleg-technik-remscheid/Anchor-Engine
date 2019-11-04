@@ -1,7 +1,0 @@
-rework logger?
-
-add sound
-
-Stop Threads when unused
-
-scale images (@class=DisplayImage)
