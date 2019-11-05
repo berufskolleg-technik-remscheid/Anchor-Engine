@@ -1,13 +1,13 @@
-package btr.engine.anchor;
+package btr.engine.anchor.lwjgl;
 
 import btr.engine.anchor.bridge.render.RenderManager;
 import btr.engine.anchor.bridge.render.simple.SimpleRenderLayer;
 import btr.engine.anchor.bridge.settings.render.RenderSettings;
 import btr.engine.anchor.bridge.settings.window.WindowSettings;
-import btr.engine.anchor.render.renderer.LWJGLRenderManager;
-import btr.engine.anchor.render.setting.LWJGLRenderSettings;
-import btr.engine.anchor.render.setting.LWJGLWindowSettings;
-import btr.engine.anchor.render.callbacks.*;
+import btr.engine.anchor.lwjgl.render.callbacks.*;
+import btr.engine.anchor.lwjgl.render.renderer.LWJGLRenderManager;
+import btr.engine.anchor.lwjgl.render.setting.LWJGLRenderSettings;
+import btr.engine.anchor.lwjgl.render.setting.LWJGLWindowSettings;
 import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GL11;
@@ -26,6 +26,8 @@ public class LWJGLRenderLayer implements SimpleRenderLayer {
     GLFWScrollCallback scrollCallback;
     GLFWWindowSizeCallback windowSizeCallback;
     GLFWCursorPosCallback cursorPosCallback;
+    GLFWDropCallback dropCallback;
+    GLFWWindowCloseCallback windowCloseCallback;
 
     GLFWVidMode vidMode;
 
@@ -51,6 +53,8 @@ public class LWJGLRenderLayer implements SimpleRenderLayer {
         GLFW.glfwSetMouseButtonCallback(window, mouseButtonCallback = new MouseButtonCallback(this));
         GLFW.glfwSetScrollCallback(window, scrollCallback = new ScrollCallback(this));
         GLFW.glfwSetWindowSizeCallback(window, windowSizeCallback = new WindowSizeCallback(this));
+        GLFW.glfwSetWindowCloseCallback(window, windowCloseCallback = new WindowCloseCallback(this));
+        GLFW.glfwSetDropCallback(window, dropCallback = new DropCallback(this));
         GL.createCapabilities();
         if (renderSettings.isVSync())
             GLFW.glfwSwapInterval(1);

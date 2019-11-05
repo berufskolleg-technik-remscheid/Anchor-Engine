@@ -1,8 +1,8 @@
-package btr.engine.anchor.render.setting;
+package btr.engine.anchor.lwjgl.render.setting;
 
-import btr.engine.anchor.LWJGLRenderLayer;
 import btr.engine.anchor.bridge.settings.window.WindowSettings;
 import btr.engine.anchor.exceptions.NotSupportedException;
+import btr.engine.anchor.lwjgl.LWJGLRenderLayer;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWImage;
 

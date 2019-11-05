@@ -1,8 +1,8 @@
-package btr.engine.anchor.render.renderer;
+package btr.engine.anchor.lwjgl.render.renderer;
 
-import btr.engine.anchor.LWJGLRenderLayer;
 import btr.engine.anchor.bridge.object.AnchorObject;
 import btr.engine.anchor.bridge.render.RenderManager;
+import btr.engine.anchor.lwjgl.LWJGLRenderLayer;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GL11;

@@ -1,6 +1,6 @@
-package btr.engine.anchor.render.callbacks;
+package btr.engine.anchor.lwjgl.render.callbacks;
 
-import btr.engine.anchor.LWJGLRenderLayer;
+import btr.engine.anchor.lwjgl.LWJGLRenderLayer;
 import org.lwjgl.glfw.GLFWScrollCallback;
 
 public class ScrollCallback extends GLFWScrollCallback {

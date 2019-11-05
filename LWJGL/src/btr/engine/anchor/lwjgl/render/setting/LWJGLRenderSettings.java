@@ -1,7 +1,7 @@
-package btr.engine.anchor.render.setting;
+package btr.engine.anchor.lwjgl.render.setting;
 
-import btr.engine.anchor.LWJGLRenderLayer;
 import btr.engine.anchor.bridge.settings.render.RenderSettings;
+import btr.engine.anchor.lwjgl.LWJGLRenderLayer;
 import org.lwjgl.glfw.GLFW;
 
 public class LWJGLRenderSettings implements RenderSettings {
