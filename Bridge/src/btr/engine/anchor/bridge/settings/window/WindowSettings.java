@@ -12,6 +12,10 @@ public interface WindowSettings {
 
     public void show();
 
+    public void update();
+
+    public void focus();
+
     /* window variables */
 
     public boolean isResizable();

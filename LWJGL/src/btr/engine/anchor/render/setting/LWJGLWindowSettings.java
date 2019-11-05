@@ -1,7 +1,10 @@
 package btr.engine.anchor.render.setting;
 
+import btr.engine.anchor.LWJGLRenderLayer;
 import btr.engine.anchor.bridge.settings.window.WindowSettings;
 import btr.engine.anchor.exceptions.NotSupportedException;
+import org.lwjgl.glfw.GLFW;
+import org.lwjgl.glfw.GLFWImage;
 
 import java.awt.image.BufferedImage;
 
@@ -13,17 +16,20 @@ public class LWJGLWindowSettings implements WindowSettings {
     boolean resizable;
     boolean visible;
     String title;
+    GLFWImage.Buffer icon;
+    LWJGLRenderLayer renderLayer;
 
-    public LWJGLWindowSettings() {
+    public LWJGLWindowSettings(LWJGLRenderLayer renderLayer) {
+        this.renderLayer = renderLayer;
         this.width = 800;
         this.height = 600;
         this.fullscreen = false;
         this.resizable = false;
         this.visible = true;
-        this.title = "AnchorEngineTest";
+        this.title = "AnchorEngine";
     }
 
-    public LWJGLWindowSettings(int width, int height, int x, int y, boolean fullscreen, boolean resizable, boolean visible, String title) {
+    public LWJGLWindowSettings(int width, int height, boolean fullscreen, boolean resizable, boolean visible, String title) {
         this.width = width;
         this.height = height;
         this.fullscreen = fullscreen;
@@ -33,18 +39,32 @@ public class LWJGLWindowSettings implements WindowSettings {
     }
 
     @Override
+    public void update() {
+        this.width = fullscreen ? renderLayer.getVidMode().width() : width;
+        this.height = fullscreen ? renderLayer.getVidMode().height() : height;
+        GLFW.glfwSetWindowSize(renderLayer.getWindow(), getWidth(), getHeight());
+        GLFW.glfwSetWindowIcon(renderLayer.getWindow(), icon);
+        GLFW.glfwSetWindowTitle(renderLayer.getWindow(), title);
+    }
+
+    @Override
+    public void focus() {
+        GLFW.glfwFocusWindow(renderLayer.getWindow());
+    }
+
+    @Override
     public void close() {
-        throw new NotSupportedException();
+        GLFW.glfwSetWindowShouldClose(renderLayer.getWindow(), true);
     }
 
     @Override
     public void hide() {
-        throw new NotSupportedException();
+        GLFW.glfwHideWindow(renderLayer.getWindow());
     }
 
     @Override
     public void show() {
-        throw new NotSupportedException();
+        GLFW.glfwShowWindow(renderLayer.getWindow());
     }
 
     @Override
@@ -59,7 +79,7 @@ public class LWJGLWindowSettings implements WindowSettings {
 
     @Override
     public boolean isResizable() {
-        return false;
+        return resizable;
     }
 
     @Override
@@ -109,6 +129,6 @@ public class LWJGLWindowSettings implements WindowSettings {
 
     @Override
     public void setCursor(BufferedImage image) {
-
+        throw new NotSupportedException();
     }
 }

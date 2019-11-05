@@ -25,13 +25,14 @@ public class LWJGLRenderLayer implements SimpleRenderLayer {
     GLFWMouseButtonCallback mouseButtonCallback;
     GLFWScrollCallback scrollCallback;
     GLFWWindowSizeCallback windowSizeCallback;
+    GLFWCursorPosCallback cursorPosCallback;
 
     GLFWVidMode vidMode;
 
     @Override
     public void init() {
-        setRenderSettings(new LWJGLRenderSettings());
-        setWindowSettings(new LWJGLWindowSettings());
+        setRenderSettings(new LWJGLRenderSettings(this));
+        setWindowSettings(new LWJGLWindowSettings(this));
         errorCallback = GLFWErrorCallback.createPrint(System.err).set();
         if (!GLFW.glfwInit()) throw new RuntimeException("GLFW cloud not be initialized!");
         GLFW.glfwDefaultWindowHints();
@@ -45,10 +46,11 @@ public class LWJGLRenderLayer implements SimpleRenderLayer {
         if (!windowSettings.isFullscreen())
             GLFW.glfwSetWindowPos(window, (vidMode.width() - windowSettings.getWidth()) / 2, (vidMode.height() - windowSettings.getHeight()) / 2);
         GLFW.glfwMakeContextCurrent(window);
-        GLFW.glfwSetKeyCallback(window, keyCallback = new KeyCallback());
-        GLFW.glfwSetMouseButtonCallback(window, mouseButtonCallback = new MouseButtonCallback());
-        GLFW.glfwSetScrollCallback(window, scrollCallback = new ScrollCallback());
-        GLFW.glfwSetWindowSizeCallback(window, windowSizeCallback = new WindowSizeCallback());
+        GLFW.glfwSetKeyCallback(window, keyCallback = new KeyCallback(this));
+        GLFW.glfwSetCursorPosCallback(window, cursorPosCallback = new CursorPositionCallback(this));
+        GLFW.glfwSetMouseButtonCallback(window, mouseButtonCallback = new MouseButtonCallback(this));
+        GLFW.glfwSetScrollCallback(window, scrollCallback = new ScrollCallback(this));
+        GLFW.glfwSetWindowSizeCallback(window, windowSizeCallback = new WindowSizeCallback(this));
         GL.createCapabilities();
         if (renderSettings.isVSync())
             GLFW.glfwSwapInterval(1);
@@ -91,6 +93,10 @@ public class LWJGLRenderLayer implements SimpleRenderLayer {
 
     public long getWindow() {
         return window;
+    }
+
+    public LWJGLWindowSettings getWindowSettings() {
+        return windowSettings;
     }
 
     @Override

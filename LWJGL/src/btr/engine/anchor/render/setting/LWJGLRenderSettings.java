@@ -1,5 +1,6 @@
 package btr.engine.anchor.render.setting;
 
+import btr.engine.anchor.LWJGLRenderLayer;
 import btr.engine.anchor.bridge.settings.render.RenderSettings;
 import org.lwjgl.glfw.GLFW;
 
@@ -8,14 +9,17 @@ public class LWJGLRenderSettings implements RenderSettings {
     private boolean vsync;
     private int msaa; // Multisample antialising
 
+    private LWJGLRenderLayer renderLayer;
 
-    public LWJGLRenderSettings() {
+    public LWJGLRenderSettings(LWJGLRenderLayer renderLayer) {
+        this.renderLayer = renderLayer;
         this.vsync = true;
     }
 
     @Override
     public void update() {
         GLFW.glfwSwapInterval(vsync ? 1 : 0);
+        GLFW.glfwSetWindowOpacity(renderLayer.getWindow(), 0.1f);
     }
 
     @Override
