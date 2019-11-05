@@ -24,6 +24,6 @@ public class LWJGLRenderManager implements RenderManager {
         int[] pixels = new int[lwjgl.getVidMode().width() * lwjgl.getVidMode().height() * 4];
         GL11.glReadBuffer(GL11.GL_FRONT);
         GL11.glReadPixels(0, 0, lwjgl.getVidMode().width(), lwjgl.getVidMode().height(), GL11.GL_RGBA, GL11.GL_UNSIGNED_INT, pixels);
-        return pixels; // TODO: return rendered image
+        return pixels;
     }
 }

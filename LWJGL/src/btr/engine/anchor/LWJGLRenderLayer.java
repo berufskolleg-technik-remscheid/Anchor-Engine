@@ -7,6 +7,7 @@ import btr.engine.anchor.bridge.settings.window.WindowSettings;
 import btr.engine.anchor.render.renderer.LWJGLRenderManager;
 import btr.engine.anchor.render.setting.LWJGLRenderSettings;
 import btr.engine.anchor.render.setting.LWJGLWindowSettings;
+import btr.engine.anchor.render.callbacks.*;
 import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GL11;
@@ -44,6 +45,10 @@ public class LWJGLRenderLayer implements SimpleRenderLayer {
         if (!windowSettings.isFullscreen())
             GLFW.glfwSetWindowPos(window, (vidMode.width() - windowSettings.getWidth()) / 2, (vidMode.height() - windowSettings.getHeight()) / 2);
         GLFW.glfwMakeContextCurrent(window);
+        GLFW.glfwSetKeyCallback(window, keyCallback = new KeyCallback());
+        GLFW.glfwSetMouseButtonCallback(window, mouseButtonCallback = new MouseButtonCallback());
+        GLFW.glfwSetScrollCallback(window, scrollCallback = new ScrollCallback());
+        GLFW.glfwSetWindowSizeCallback(window, windowSizeCallback = new WindowSizeCallback());
         GL.createCapabilities();
         if (renderSettings.isVSync())
             GLFW.glfwSwapInterval(1);
