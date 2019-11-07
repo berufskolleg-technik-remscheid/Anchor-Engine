@@ -11,6 +11,7 @@ import btr.engine.anchor.lwjgl.render.setting.LWJGLWindowSettings;
 import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL15;
 import org.lwjgl.system.MemoryUtil;
 
 public class LWJGLRenderLayer implements SimpleRenderLayer {
