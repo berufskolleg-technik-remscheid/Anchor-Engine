@@ -8,7 +8,9 @@
       <module fileurl="file://$PROJECT_DIR$/Event/Event.iml" filepath="$PROJECT_DIR$/Event/Event.iml" />
       <module fileurl="file://$PROJECT_DIR$/Exampels/Exampels.iml" filepath="$PROJECT_DIR$/Exampels/Exampels.iml" />
       <module fileurl="file://$PROJECT_DIR$/Exceptions/Exceptions.iml" filepath="$PROJECT_DIR$/Exceptions/Exceptions.iml" />
-      <module fileurl="file://$PROJECT_DIR$/LWJGL/LWJGL.iml" filepath="$PROJECT_DIR$/LWJGL/LWJGL.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OpenAL/OpenAL.iml" filepath="$PROJECT_DIR$/OpenAL/OpenAL.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OpenGL/OpenGL.iml" filepath="$PROJECT_DIR$/OpenGL/OpenGL.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Vulkan/Vulkan.iml" filepath="$PROJECT_DIR$/Vulkan/Vulkan.iml" />
     </modules>
   </component>
 </project>

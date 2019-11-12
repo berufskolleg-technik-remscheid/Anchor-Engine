@@ -5,5 +5,7 @@ import btr.engine.anchor.bridge.object.AnchorObject;
 public class SceneObject extends AnchorObject {
 
 
-
+    public SceneObject(String name) {
+        super(name);
+    }
 }
