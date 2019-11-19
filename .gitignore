@@ -32,3 +32,4 @@ out/
 Run/
 Jars/
 META-INF/
+*.anchor
