@@ -3,7 +3,6 @@ package btr.engine.anchor.lwjgl.opengl.render.setting;
 import btr.engine.anchor.bridge.settings.window.WindowSettings;
 import btr.engine.anchor.exceptions.NotSupportedException;
 import btr.engine.anchor.lwjgl.opengl.OpenGLRenderLayer;
-import btr.engine.anchor.lwjgl.opengl.OpenGLRenderLayer;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWImage;
 

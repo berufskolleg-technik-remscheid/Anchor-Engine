@@ -41,7 +41,6 @@ public class OpenGLRenderLayer extends SimpleRenderLayer {
         GLFW.glfwDefaultWindowHints();
         GLFW.glfwWindowHint(GLFW.GLFW_RESIZABLE, windowSettings.isResizable() ? GLFW.GLFW_TRUE : GLFW.GLFW_FALSE);
         GLFW.glfwWindowHint(GLFW.GLFW_VISIBLE, windowSettings.isVisible() ? GLFW.GLFW_TRUE : GLFW.GLFW_FALSE);
-        GLFW.glfwWindowHint(GLFW.GLFW_MAXIMIZED, GLFW.GLFW_TRUE);
         window = GLFW.glfwCreateWindow(windowSettings.getWidth(), windowSettings.getHeight(), windowSettings.getTitle(), windowSettings.isFullscreen() ? GLFW.glfwGetPrimaryMonitor() : MemoryUtil.NULL, MemoryUtil.NULL);
         setRenderManager(new OpenGLRenderManager(this));
         if (window == MemoryUtil.NULL) throw new RuntimeException("Window could not be created");
@@ -62,7 +61,7 @@ public class OpenGLRenderLayer extends SimpleRenderLayer {
         if (renderSettings.isVSync())
             GLFW.glfwSwapInterval(1);
         GLFW.glfwShowWindow(window);
-        GL11.glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+        GL11.glClearColor(1.0f, 0.1f, 0.1f, 1.0f);
         GL11.glEnable(GL11.GL_DEPTH_TEST | GL11.GL_COLOR_BUFFER_BIT);
     }
 

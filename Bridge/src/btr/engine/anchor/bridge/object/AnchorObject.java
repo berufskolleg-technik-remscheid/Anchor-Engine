@@ -39,4 +39,8 @@ public abstract class AnchorObject {
     public String getUUID() {
         return uuid;
     }
+
+    public Mesh getMesh() {
+        return mesh;
+    }
 }
