@@ -9,7 +9,7 @@ import org.lwjgl.glfw.GLFWImage;
 
 import java.awt.image.BufferedImage;
 
-public class LWJGLWindowSettings implements WindowSettings {
+public class OpenGLWindowSettings implements WindowSettings {
 
     int width;
     int height;
@@ -20,17 +20,17 @@ public class LWJGLWindowSettings implements WindowSettings {
     GLFWImage.Buffer icon;
     OpenGLRenderLayer renderLayer;
 
-    public LWJGLWindowSettings(OpenGLRenderLayer renderLayer) {
+    public OpenGLWindowSettings(OpenGLRenderLayer renderLayer) {
         this.renderLayer = renderLayer;
         this.width = 800;
         this.height = 600;
         this.fullscreen = false;
         this.resizable = false;
         this.visible = true;
-        this.title = "AnchorEngine";
+        this.title = "Test";
     }
 
-    public LWJGLWindowSettings(OpenGLRenderLayer renderLayer, int width, int height, boolean fullscreen, boolean resizable, boolean visible, String title) {
+    public OpenGLWindowSettings(OpenGLRenderLayer renderLayer, int width, int height, boolean fullscreen, boolean resizable, boolean visible, String title) {
         this.renderLayer = renderLayer;
         this.width = width;
         this.height = height;

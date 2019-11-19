@@ -23,8 +23,8 @@
 hs_err_pid*
 
 #IntelliJ Idea
-/.idea/
-/out/
+.idea/
+out/
 *.iml
 *.kotlin_module
 *.todo

@@ -5,14 +5,14 @@ import btr.engine.anchor.lwjgl.opengl.OpenGLRenderLayer;
 import btr.engine.anchor.lwjgl.opengl.OpenGLRenderLayer;
 import org.lwjgl.glfw.GLFW;
 
-public class LWJGLRenderSettings implements RenderSettings {
+public class OpenGLRenderSettings implements RenderSettings {
 
     private boolean vsync;
     private int msaa; // Multisample antialising
 
     private OpenGLRenderLayer renderLayer;
 
-    public LWJGLRenderSettings(OpenGLRenderLayer renderLayer) {
+    public OpenGLRenderSettings(OpenGLRenderLayer renderLayer) {
         this.renderLayer = renderLayer;
         this.vsync = true;
     }

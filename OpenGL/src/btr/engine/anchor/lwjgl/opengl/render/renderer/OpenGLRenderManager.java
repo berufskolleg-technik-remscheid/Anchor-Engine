@@ -7,7 +7,7 @@ import org.lwjgl.glfw.GLFW;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GL11;
 
-public class LWJGLRenderManager implements RenderManager {
+public class OpenGLRenderManager implements RenderManager {
 
     private OpenGLRenderLayer lwjgl;
 
@@ -17,7 +17,7 @@ public class LWJGLRenderManager implements RenderManager {
             0.1f, 0.6f, 1f
     };
 
-    public LWJGLRenderManager(OpenGLRenderLayer lwjgl) {
+    public OpenGLRenderManager(OpenGLRenderLayer lwjgl) {
         this.lwjgl = lwjgl;
     }
 

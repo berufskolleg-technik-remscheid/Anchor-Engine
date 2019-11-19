@@ -1,0 +1,3 @@
+main:btr.engine.anchor.lwjgl.openal.OpenALAudioLayer
+version:0.0.1
+description:OpenAL layer for audio output

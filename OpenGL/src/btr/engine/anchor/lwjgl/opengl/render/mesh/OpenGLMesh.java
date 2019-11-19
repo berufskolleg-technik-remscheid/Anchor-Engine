@@ -2,13 +2,13 @@ package btr.engine.anchor.lwjgl.opengl.render.mesh;
 
 import btr.engine.anchor.bridge.object.mesh.Mesh;
 
-public class LWJGLMesh {
+public class OpenGLMesh {
 
     private int vao;
     private int[] vobs;
 
-    public static LWJGLMesh fromMesh(Mesh mesh) {
-        LWJGLMesh result = new LWJGLMesh();
+    public static OpenGLMesh fromMesh(Mesh mesh) {
+        OpenGLMesh result = new OpenGLMesh();
         return result;
     }
 

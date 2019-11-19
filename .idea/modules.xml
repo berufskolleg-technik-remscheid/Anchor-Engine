@@ -4,7 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AWT/AWT.iml" filepath="$PROJECT_DIR$/AWT/AWT.iml" />
       <module fileurl="file://$PROJECT_DIR$/Bridge/Bridge.iml" filepath="$PROJECT_DIR$/Bridge/Bridge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ClassLoader/ClassLoader.iml" filepath="$PROJECT_DIR$/ClassLoader/ClassLoader.iml" />
       <module fileurl="file://$PROJECT_DIR$/Core Engine/Core Engine.iml" filepath="$PROJECT_DIR$/Core Engine/Core Engine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Editor/Editor.iml" filepath="$PROJECT_DIR$/Editor/Editor.iml" />
       <module fileurl="file://$PROJECT_DIR$/Event/Event.iml" filepath="$PROJECT_DIR$/Event/Event.iml" />
       <module fileurl="file://$PROJECT_DIR$/Exampels/Exampels.iml" filepath="$PROJECT_DIR$/Exampels/Exampels.iml" />
       <module fileurl="file://$PROJECT_DIR$/Exceptions/Exceptions.iml" filepath="$PROJECT_DIR$/Exceptions/Exceptions.iml" />

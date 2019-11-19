@@ -5,9 +5,9 @@ import btr.engine.anchor.bridge.render.simple.SimpleRenderLayer;
 import btr.engine.anchor.bridge.settings.render.RenderSettings;
 import btr.engine.anchor.bridge.settings.window.WindowSettings;
 import btr.engine.anchor.lwjgl.opengl.render.callbacks.*;
-import btr.engine.anchor.lwjgl.opengl.render.renderer.LWJGLRenderManager;
-import btr.engine.anchor.lwjgl.opengl.render.setting.LWJGLRenderSettings;
-import btr.engine.anchor.lwjgl.opengl.render.setting.LWJGLWindowSettings;
+import btr.engine.anchor.lwjgl.opengl.render.renderer.OpenGLRenderManager;
+import btr.engine.anchor.lwjgl.opengl.render.setting.OpenGLRenderSettings;
+import btr.engine.anchor.lwjgl.opengl.render.setting.OpenGLWindowSettings;
 import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GL11;
@@ -16,9 +16,9 @@ import org.lwjgl.system.MemoryUtil;
 public class OpenGLRenderLayer extends SimpleRenderLayer {
 
     long window;
-    LWJGLRenderManager renderManager;
-    LWJGLRenderSettings renderSettings;
-    LWJGLWindowSettings windowSettings;
+    OpenGLRenderManager renderManager;
+    OpenGLRenderSettings renderSettings;
+    OpenGLWindowSettings windowSettings;
 
     GLFWErrorCallback errorCallback;
     GLFWKeyCallback keyCallback;
@@ -34,8 +34,8 @@ public class OpenGLRenderLayer extends SimpleRenderLayer {
 
     @Override
     public void init() {
-        setRenderSettings(new LWJGLRenderSettings(this));
-        setWindowSettings(new LWJGLWindowSettings(this));
+        setRenderSettings(new OpenGLRenderSettings(this));
+        setWindowSettings(new OpenGLWindowSettings(this));
         errorCallback = GLFWErrorCallback.createPrint(System.err).set();
         if (!GLFW.glfwInit()) throw new RuntimeException("GLFW cloud not be initialized!");
         GLFW.glfwDefaultWindowHints();
@@ -43,7 +43,7 @@ public class OpenGLRenderLayer extends SimpleRenderLayer {
         GLFW.glfwWindowHint(GLFW.GLFW_VISIBLE, windowSettings.isVisible() ? GLFW.GLFW_TRUE : GLFW.GLFW_FALSE);
         GLFW.glfwWindowHint(GLFW.GLFW_MAXIMIZED, GLFW.GLFW_TRUE);
         window = GLFW.glfwCreateWindow(windowSettings.getWidth(), windowSettings.getHeight(), windowSettings.getTitle(), windowSettings.isFullscreen() ? GLFW.glfwGetPrimaryMonitor() : MemoryUtil.NULL, MemoryUtil.NULL);
-        setRenderManager(new LWJGLRenderManager(this));
+        setRenderManager(new OpenGLRenderManager(this));
         if (window == MemoryUtil.NULL) throw new RuntimeException("Window could not be created");
         vidMode = GLFW.glfwGetVideoMode(GLFW.glfwGetPrimaryMonitor());
         if (vidMode == null) throw new RuntimeException("VidMode could not be found!");
@@ -58,7 +58,6 @@ public class OpenGLRenderLayer extends SimpleRenderLayer {
         GLFW.glfwSetWindowCloseCallback(window, windowCloseCallback = new WindowCloseCallback(this));
         GLFW.glfwSetDropCallback(window, dropCallback = new DropCallback(this));
         GLFW.glfwSetWindowRefreshCallback(window, windowRefreshCallback = new WindowRefreshCallback(this));
-        GLFW.glfwSet
         GL.createCapabilities();
         if (renderSettings.isVSync())
             GLFW.glfwSwapInterval(1);
@@ -76,22 +75,22 @@ public class OpenGLRenderLayer extends SimpleRenderLayer {
 
     @Override
     public void setRenderManager(RenderManager renderManager) {
-        if (renderManager instanceof LWJGLRenderManager) {
-            this.renderManager = (LWJGLRenderManager) renderManager;
+        if (renderManager instanceof OpenGLRenderManager) {
+            this.renderManager = (OpenGLRenderManager) renderManager;
         }
     }
 
     @Override
     public void setRenderSettings(RenderSettings renderSettings) {
-        if (renderSettings instanceof LWJGLRenderSettings) {
-            this.renderSettings = (LWJGLRenderSettings) renderSettings;
+        if (renderSettings instanceof OpenGLRenderSettings) {
+            this.renderSettings = (OpenGLRenderSettings) renderSettings;
         }
     }
 
     @Override
     public void setWindowSettings(WindowSettings windowSettings) {
-        if (windowSettings instanceof LWJGLWindowSettings) {
-            this.windowSettings = (LWJGLWindowSettings) windowSettings;
+        if (windowSettings instanceof OpenGLWindowSettings) {
+            this.windowSettings = (OpenGLWindowSettings) windowSettings;
         }
     }
 
@@ -103,7 +102,7 @@ public class OpenGLRenderLayer extends SimpleRenderLayer {
         return window;
     }
 
-    public LWJGLWindowSettings getWindowSettings() {
+    public OpenGLWindowSettings getWindowSettings() {
         return windowSettings;
     }
 
@@ -111,4 +110,5 @@ public class OpenGLRenderLayer extends SimpleRenderLayer {
     public RenderManager getRenderManager() {
         return renderManager;
     }
+
 }
