@@ -15,7 +15,6 @@ public class LayerLoader extends EngineClassLoader {
 
     private String layerName;
     private String layerPath;
-    private LayerType layerType;
     private URLClassLoader loader;
 
     public LayerLoader(LayerType layerType, Object layer) throws IOException, ClassNotFoundException {
@@ -26,7 +25,7 @@ public class LayerLoader extends EngineClassLoader {
                 }
                 AudioLayer audioLayer = (AudioLayer) layer;
                 layerName = audioLayer.name();
-                layerName = audioLayer.getPath();
+                layerPath = audioLayer.getPath();
                 break;
             case RENDER:
                 if (!(layer instanceof RenderLayer)) {
@@ -34,7 +33,7 @@ public class LayerLoader extends EngineClassLoader {
                 }
                 RenderLayer renderLayer = (RenderLayer) layer;
                 layerName = renderLayer.name();
-                layerName = renderLayer.getPath();
+                layerPath = renderLayer.getPath();
                 break;
             default:
                 break;
