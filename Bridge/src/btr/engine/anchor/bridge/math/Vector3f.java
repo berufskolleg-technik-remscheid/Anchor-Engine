@@ -2,7 +2,7 @@ package btr.engine.anchor.bridge.math;
 
 public class Vector3f {
 
-    int x, y, z;
+    float x, y, z;
 
     public Vector3f() {
         this.x = 0;
@@ -10,33 +10,33 @@ public class Vector3f {
         this.z = 0;
     }
 
-    public Vector3f(int x, int y, int z) {
+    public Vector3f(float x, float y, float z) {
         this.x = x;
         this.y = y;
         this.z = z;
     }
 
-    public int getX() {
+    public float getX() {
         return x;
     }
 
-    public void setX(int x) {
+    public void setX(float x) {
         this.x = x;
     }
 
-    public int getY() {
+    public float getY() {
         return y;
     }
 
-    public void setY(int y) {
+    public void setY(float y) {
         this.y = y;
     }
 
-    public int getZ() {
+    public float getZ() {
         return z;
     }
 
-    public void setZ(int z) {
+    public void setZ(float z) {
         this.z = z;
     }
 }

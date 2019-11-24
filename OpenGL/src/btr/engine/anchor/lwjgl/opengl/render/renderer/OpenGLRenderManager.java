@@ -8,17 +8,12 @@ import btr.engine.anchor.lwjgl.opengl.render.mesh.OpenGLMesh;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL15;
 import org.lwjgl.opengl.GL30;
 
 public class OpenGLRenderManager implements RenderManager {
 
     private OpenGLRenderLayer lwjgl;
-
-    private float positions[] = {
-            0.5f, 0.6f, 0.0f,
-            0.04f, 0.1f, 0.5f,
-            0.1f, 0.6f, 1f
-    };
 
     public OpenGLRenderManager(OpenGLRenderLayer lwjgl) {
         this.lwjgl = lwjgl;
@@ -26,11 +21,7 @@ public class OpenGLRenderManager implements RenderManager {
 
     @Override
     public void init() {
-//        FloatBuffer buffer = MemoryUtil.memAllocFloat(positions.length);
-//        buffer
-//        GL15.glGenBuffers(buffer);
-//        GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, buffer);
-//        GL15.glBufferData(GL15.GL_ARRAY_BUFFER, positions.length, positions, GL15.GL_STATIC_DRAW);
+        
     }
 
     @Override
@@ -42,6 +33,13 @@ public class OpenGLRenderManager implements RenderManager {
         OpenGLMesh[] meshs = new OpenGLMesh[anchorObjects.length];
         for (int i = 0; i < anchorObjects.length; i++) {
             OpenGLMesh mesh = meshs[i] = OpenGLMesh.fromMesh(anchorObjects[i].getMesh());
+            GL30.glBindVertexArray(mesh.getVao());
+            GL30.glEnableVertexAttribArray(0);
+            GL15.glBindBuffer(GL15.GL_ELEMENT_ARRAY_BUFFER, mesh.getIbo());
+            GL11.glDrawElements(GL11.GL_TRIANGLES, mesh.getIndices().length, GL11.GL_FLOAT, 0);
+            GL15.glBindBuffer(GL15.GL_ELEMENT_ARRAY_BUFFER, 0);
+            GL30.glDisableVertexAttribArray(0);
+            GL30.glBindVertexArray(0);
         }
         GLFW.glfwPollEvents();
         int[] pixels = new int[lwjgl.getVidMode().width() * lwjgl.getVidMode().height() * 4];

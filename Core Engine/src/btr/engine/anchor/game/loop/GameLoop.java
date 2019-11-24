@@ -2,7 +2,7 @@ package btr.engine.anchor.game.loop;
 
 import btr.engine.anchor.AnchorEngine;
 import btr.engine.anchor.bridge.object.AnchorObject;
-import btr.engine.anchor.game.object.mesh.Cube;
+import btr.engine.anchor.game.object.mesh.Rectangle;
 
 public class GameLoop {
 
@@ -17,7 +17,7 @@ public class GameLoop {
     public void run() {
         run = true;
         while (run) {
-            anchorEngine.getSimpleRenderLayer().getRenderManager().render(new AnchorObject[]{new Cube("Cube1")});
+            anchorEngine.getSimpleRenderLayer().getRenderManager().render(new AnchorObject[]{new Rectangle()});
         }
     }
 }
